@@ -1,8 +1,8 @@
 const express = require("express");
 const cors = require("cors");
+require("dotenv").config();
 
 const app = express();
-const PORT = 8000 || process.env.PORT;
 
 app.use(cors());
 app.use(express.json());
@@ -30,4 +30,4 @@ app.get("/videos/:id", (req, res) => {
   return res.status(200).json(result);
 });
 
-app.listen(PORT, () => console.log("server is running"));
+app.listen(process.env.PORT || 8080, () => console.log("server is running"));
